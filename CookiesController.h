@@ -12,11 +12,11 @@
 @interface CookiesController : NSObject {
 	NSString *cookiesFileLocation;
 	NSTableView *cookiesTable;
-	NSMutableArray *cookiesData;
+	NSMutableArray *filteredCookiesData;
+	NSMutableArray *originalCookiesData;
 }
 
 @property(assign) IBOutlet NSTableView *cookiesTable;
-@property(assign) NSMutableArray *cookiesData;
 
 -(IBAction) saveCookies:(id)sender;
 -(IBAction) reloadCookies:(id)sender;
