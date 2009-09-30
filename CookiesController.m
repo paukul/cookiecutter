@@ -25,7 +25,6 @@
 }
 
 -(void) awakeFromNib {
-	NSLog(@"AAAAAAAAAAAAAAA");
 	[self initCookiesDataSource:@"~/Library/Cookies/Cookies.plist"];
 }
 
@@ -35,7 +34,7 @@
 objectValueForTableColumn:(NSTableColumn *)aTableColumn
 			row:(int)rowIndex
 {
-    return [[cookiesData objectAtIndex:rowIndex] objectForKey:@"Domain"];
+    return [[cookiesData objectAtIndex:rowIndex] objectForKey:[[aTableColumn headerCell] title]];
 }
 
 - (int)numberOfRowsInTableView:(NSTableView *)aTableView
