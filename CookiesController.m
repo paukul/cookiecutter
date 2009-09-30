@@ -20,7 +20,14 @@
 		self.cookiesData = [NSMutableArray arrayWithContentsOfFile:cookiesFileLocation];
 		//NSLog(@"%@", cookiesData);
 	}else{
-		NSLog(@"File doesn't exist at %@", cookiesFileLocation);
+		NSAlert *alert = [NSAlert alertWithMessageText:@"No Cookies file found!" 
+										 defaultButton:@"Exit" 
+									   alternateButton:nil 
+										   otherButton:nil 
+							 informativeTextWithFormat:@"Was looking for a cookies file at \n%@", cookiesFileLocation];
+		[alert setAlertStyle:NSCriticalAlertStyle];
+		[alert runModal];
+		[[NSApplication sharedApplication] terminate:self];
 	}
 }
 
